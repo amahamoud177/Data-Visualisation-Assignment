@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Assignment</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="assignment_files/libs/clipboard/clipboard.min.js"></script>
+<script src="assignment_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="assignment_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="assignment_files/libs/quarto-html/popper.min.js"></script>
+<script src="assignment_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="assignment_files/libs/quarto-html/anchor.min.js"></script>
+<link href="assignment_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="assignment_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="assignment_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="assignment_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="assignment_files/libs/bootstrap/bootstrap-bb462d781dde1847d9e3ccf7736099dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#planning-a-graphic-the-spec" id="toc-planning-a-graphic-the-spec" class="nav-link active" data-scroll-target="#planning-a-graphic-the-spec">Planning a Graphic (The SPEC)</a>
+  <ul class="collapse">
+  <li><a href="#what-makes-a-good-specification" id="toc-what-makes-a-good-specification" class="nav-link" data-scroll-target="#what-makes-a-good-specification">What makes a good specification?</a>
+  <ul class="collapse">
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#aesthetics" id="toc-aesthetics" class="nav-link" data-scroll-target="#aesthetics">Aesthetics</a></li>
+  <li><a href="#geometries" id="toc-geometries" class="nav-link" data-scroll-target="#geometries">Geometries</a></li>
+  <li><a href="#scale" id="toc-scale" class="nav-link" data-scroll-target="#scale">Scale</a></li>
+  <li><a href="#coordinates" id="toc-coordinates" class="nav-link" data-scroll-target="#coordinates">Coordinates</a></li>
+  <li><a href="#guides" id="toc-guides" class="nav-link" data-scroll-target="#guides">Guides</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#explaining-the-grammar-of-graphics" id="toc-explaining-the-grammar-of-graphics" class="nav-link" data-scroll-target="#explaining-the-grammar-of-graphics">Explaining the Grammar of Graphics</a>
+  <ul class="collapse">
+  <li><a href="#aesthetics-1" id="toc-aesthetics-1" class="nav-link" data-scroll-target="#aesthetics-1">Aesthetics</a></li>
+  <li><a href="#scales-and-transformations" id="toc-scales-and-transformations" class="nav-link" data-scroll-target="#scales-and-transformations">Scales and Transformations</a></li>
+  <li><a href="#geometries-and-statistical-elements" id="toc-geometries-and-statistical-elements" class="nav-link" data-scroll-target="#geometries-and-statistical-elements">Geometries and statistical elements</a></li>
+  <li><a href="#coordinates-1" id="toc-coordinates-1" class="nav-link" data-scroll-target="#coordinates-1">Coordinates</a></li>
+  <li><a href="#guides-and-facets" id="toc-guides-and-facets" class="nav-link" data-scroll-target="#guides-and-facets">Guides and facets</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul></li>
+  <li><a href="#a-complex-graphic-in-practice" id="toc-a-complex-graphic-in-practice" class="nav-link" data-scroll-target="#a-complex-graphic-in-practice">A Complex Graphic in Practice</a>
+  <ul class="collapse">
+  <li><a href="#principles-used-in-cartesian-graphic" id="toc-principles-used-in-cartesian-graphic" class="nav-link" data-scroll-target="#principles-used-in-cartesian-graphic">Principles used in Cartesian Graphic</a></li>
+  <li><a href="#principles-used-in-polar-graphic" id="toc-principles-used-in-polar-graphic" class="nav-link" data-scroll-target="#principles-used-in-polar-graphic">Principles used in Polar Graphic</a></li>
+  <li><a href="#how-perception-differs-by-encoding" id="toc-how-perception-differs-by-encoding" class="nav-link" data-scroll-target="#how-perception-differs-by-encoding">How Perception Differs by Encoding</a></li>
+  </ul></li>
+  <li><a href="#animate-with-gganimate" id="toc-animate-with-gganimate" class="nav-link" data-scroll-target="#animate-with-gganimate">Animate with gganimate</a></li>
+  <li><a href="#reference-list" id="toc-reference-list" class="nav-link" data-scroll-target="#reference-list">Reference List</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Assignment</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="planning-a-graphic-the-spec" class="level1">
+<h1>Planning a Graphic (The SPEC)</h1>
+<p>Data: <strong>mpg data set, manufacturer, hwy</strong></p>
+<p>Aesthetics: <strong>hwy mapped to the Y axis, manufacturer mapped to the X axis, fill colour by class</strong></p>
+<p>Geometries: <strong>Box plot</strong></p>
+<p>Scale: <strong>Fill colour mapping with “Dark2” palette</strong></p>
+<p>Coordinates: <strong>Cartesian coordinate system</strong></p>
+<p>Guide: <strong>Y axis = hwy, X axis = manufacturer, legend shows vehicle class and the colours they represent</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(hwy, manufacturer, <span class="at">fill =</span> class)) <span class="sc">+</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Dark2"</span>) <span class="sc">+</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><em>Figure 1: Box plot of highway miles per gallon (hwy) by manufacturer, filled by vehicle class</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="what-makes-a-good-specification" class="level2">
+<h2 class="anchored" data-anchor-id="what-makes-a-good-specification">What makes a good specification?</h2>
+<p>To understand what makes a good specification, first we should define what a specification is. The specification is the structure of the graphic detailing what data set was used, the geometrical transformations made to the data, what was used to visually represent the data (colour, positioning), whether the coordinates system is a Cartesian, polar or map projection, what statistical elements are used and a guide to point axes, legends and titles. (Wilkinson, 2005, p.&nbsp;6-7). A good specification would be able to clearly point out the different elements that went to into the graphic such that it can be reproduced into different programming languages and makes design choices transparent. These would be broken down into data, aesthetics, geometries, scale, coordinates and guide.</p>
+<section id="data" class="level3">
+<h3 class="anchored" data-anchor-id="data">Data</h3>
+<p>In the data section of the specification, it should show which data sets were used, the variables from said data set and which axes they represent. In Figure 1, it uses the mpg data set and the variables it uses from that data set are hwy and manufacturer.</p>
+</section>
+<section id="aesthetics" class="level3">
+<h3 class="anchored" data-anchor-id="aesthetics">Aesthetics</h3>
+<p>In the aesthetics section of the specification, it should tell you how the variables are being visually represented. It should cover things such as position, fill colour and grouping. In the case of Figure 1, the aesthetics would be that hwy is mapped to the Y axis, manufacturer is mapped to the X axis and the fill colour is class.</p>
+</section>
+<section id="geometries" class="level3">
+<h3 class="anchored" data-anchor-id="geometries">Geometries</h3>
+<p>In the geometries section of the specification, it should tell you what geometrical transformations were made to the data. In Figure 1, the geometrical transformation was a box plot.</p>
+</section>
+<section id="scale" class="level3">
+<h3 class="anchored" data-anchor-id="scale">Scale</h3>
+<p>In the scale section of the specification, it should tell you what changes were made to the aesthetics. In Figure 1, the scale would be using the “Dark2” palette to change the fill colours used by ggplot.</p>
+</section>
+<section id="coordinates" class="level3">
+<h3 class="anchored" data-anchor-id="coordinates">Coordinates</h3>
+<p>In the coordinates section of the specification, it should tell you what coordinates system the graphic is using and where values are in the graphic. In Figure 1, it uses a Cartesian coordinates system.</p>
+</section>
+<section id="guides" class="level3">
+<h3 class="anchored" data-anchor-id="guides">Guides</h3>
+<p>In the guides section of the specification, it should tell you where crucial information is relating to the graphic. This would include labelled axis, titles and legends. In Figure 1, the Y and X axis were kept as they were which was hwy and manufacturer. It has a legend which shows vehicle class and colour.</p>
+</section>
+</section>
+</section>
+<section id="explaining-the-grammar-of-graphics" class="level1">
+<h1>Explaining the Grammar of Graphics</h1>
+<section id="aesthetics-1" class="level2">
+<h2 class="anchored" data-anchor-id="aesthetics-1">Aesthetics</h2>
+<p>In the terms of the grammar of graphics, aesthetics are the variables in which the data gets transformed. This would usually consist of the data set, the variables in the data set which would be used for the X and Y axis and the fill colours. (Wilkinson, 2005, p.&nbsp;255) In terms of ggplot, aesthetics are typically represented by the aes() function (Wickham et al., 2024). One example of this is</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, unemploy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In this example, the aesthetics function is mapping the <em>date</em> variable from the economics data set to the X axis and the <em>unemploy</em> variable to the Y axis. Although aesthetics don’t render anything on their own, they are the most important function of the grammar of graphics as they determine the key variables in which the graphic will represent.</p>
+</section>
+<section id="scales-and-transformations" class="level2">
+<h2 class="anchored" data-anchor-id="scales-and-transformations">Scales and Transformations</h2>
+<p>In the terms of grammar of graphics, while aesthetics determine what the graphic will consist of, scales and transformations will determine how the data itself is visually represented (Wilkinson, 2005, p.&nbsp;85). Scales, in particular, determine the way in which a data point would be represented visually. You can think of scales as the rules in which the data values would appear visually. In ggplot, the scale functions can be used to manipulate various elements of a graphic such as the X axis, Y axis or the colour palette (Wickham et al., 2024). An example of this is the <em>scale_y_continous()</em> function. In the Figure 2.1, the <em>scale_y_continous()</em> function is used to limit the data with 5000 being the lowest number and 15000 being the highest number. You would most likely use this to highlight an interesting trend in relation to the rest of the graphic.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>economics_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, unemploy)) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">5000</span>, <span class="dv">15000</span>))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>economics_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><em>Figure 2.1: Line plot of the number of unemployed over time, showing data between 5,000 and 15,000</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Within the scale functions, transformation to the data can be made. In the terms of the grammar of graphics, transformations can be divided into 3 categories. These are scale transformations, variable transformations and coordinate transformations. Scale transformations display the data as it is but with a transformed axis without transforming the statistical result. In the previous graphic, <em>scale_y_continous()</em> was used to limit the Y axis to the numbers between 5000 - 15000. Variable transformations alter the data before any plots have been made. In terms of ggplot, variable transformations can be made to data through the use of functions such as <em>log()</em>. These functions can be used within the <em>aes()</em> function or outside of it. <em>log()</em> here is used to make a logarithmic transformation to the data before it is plotted. It would make variables with large numbers such as the <em>employ</em> variable easier to read on a graphic.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>economics_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, <span class="fu">log</span>(unemploy))) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>()</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>economics_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><em>Figure 2.2: Line plot of the logarithm of the number of unemployed over time</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Coordinate transformations can be used change the physical layout of a graphic. In terms of ggplot, we can use the previous to flip the axes using the <em>coord_flip()</em> function (Wickham et al., 2024). Although it would not make sense to flip the axes of a line graph which shows a continual change, it would serve as a good example as to how axes can be transformed.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>economics_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, <span class="fu">log</span>(unemploy))) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>() <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>economics_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><em>Figure 2.3: Line plot of the logarithm of the number of unemployed over time, with flipped coordinates</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="geometries-and-statistical-elements" class="level2">
+<h2 class="anchored" data-anchor-id="geometries-and-statistical-elements">Geometries and statistical elements</h2>
+<p>In the grammar of graphics, geometries are the physical shapes that come together to create the graphic such as line, points, areas, paths, partitions, networks and stacks. (Wilkinson, 2005, p.&nbsp;155) In terms of ggplot, creating geometries is done using any of the <em>geom</em> functions (Wickham et al., 2024). For example, <em>geom_line()</em> would create a line graph.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>line_example <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, pop)) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>line_example</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><em>Figure 2.4: Line plot showing the population over time</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In Figure 2.4, a line graph was created to show how the population increased as the years have went on. Line graphs strength come from their ability to show a continual and linear change. Continuing on from <em>geom_line()</em>, we can use <em>geom_point()</em> to show 2 continuous variables and plot a scatter plot.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>point_example <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(unemploy, uempmed)) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>point_example</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><em>Figure 2.5: Scatter plot of unemployment versus median unemployment duration</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In Figure 2.5, a scatter plot was created to show the relationship between the median unemployment duration and the unemployment rate using the <em>geom_point()</em> function. Scatter plots allow for the relationship between 2 continuous variables to be visualised. Similar to the <em>geom_line()</em> function, we can use <em>geom_area()</em> to create area plot to show a continual change in the data. The difference is that area plots typically use shading between the line and X axis. Area plots’ strength over line graphs is that they create a focus to the trends and highlight the change over time.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>area_example <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, pop)) <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>()</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>area_example</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><em>Figure 2.6: Area plot showing the population over time</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In Figure 2.6, <em>geom_area()</em> was used to create an area plot that showed the increase in population as time went on. Much differently than line graphs, a path graph can be created using the <em>geom_path()</em> function. Path graphs are used to show trajectories and cyclic movement. They typically do not follow the X or Y axis but instead put an emphasis on movement through the data.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>path_example <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(unemploy, uempmed)) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>()</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>path_example</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><em>Figure 2.7: Path plot showing the trajectory of median unemployment duration against unemployment levels</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In Figure 2.7, a path graph was used to show the relationship between the median unemployment and unemployment levels. Unlike the example line graph, the line here follows the trends in the data without following the axis which allows it to show the trajectory the data takes. In the terms of the grammar of graphics, partitions are geometries that show data by being divided. Partitions allow for the data to be divided to show categorical proportions. One example of this would be a pie chart. Because ggplot does not have a built in function to create a pie chart, we can create one by first using the <em>geom_bar()</em> and then using the <em>coord_polar()</em> to change the graph from Cartesian to polar.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>pie_example <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">fill =</span> class)) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>pie_example</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><em>Figure 2.8: Pie chart showing the distribution of vehicle classes in the <code>mpg</code> dataset</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In Figure 2.8, it shows us the count of each class within the mpg data set. The strength of pie charts is that it allows the viewer to see categorical data at a glace. The viewer would be able to see that the suv class has the highest amount of cars. Much differently than partitions, we can use networks geometries to show relationships of data using nodes and edges. In terms of ggplot, ggplot does not have a built in function for creating network graphs. Instead network graphs can be used through combining <em>geom_segment()</em> and <em>geom_point()</em>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>nodes <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Population"</span>, <span class="st">"Unemployment"</span>, <span class="st">"Unemployment Median"</span>),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>edges <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">xend =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">yend =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>network_example <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> edges, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">xend =</span> xend, <span class="at">yend =</span> yend)) <span class="sc">+</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> nodes, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> nodes, <span class="fu">aes</span>(x, y, <span class="at">label =</span> name))</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>network_example</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><em>Figure 2.9: Network-style plot showing relationships between Population, Unemployment, and Median Unemployment</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In Figure 2.9, a network graph is created to show the connections between population, unemployment and unemployment median. The strength of network graphs is that it allows for relationships between data points to be clearly visualised. It focuses on the relationships between variables rather than trends. In the terms of grammar of graphics, stacks are a positional adjustment that allows for data to be layered without the worry of collision. The types of stack adjustments are stacks, dodge and jitter. In ggplot, you can use the set the position modifier in <em>geom_bar()</em> to “stack” create a stacked bar graph.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>stacked_example <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> trans, <span class="at">fill =</span> drv)) <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"stack"</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>stacked_example</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><em>Figure 2.10: Stacked bar chart showing the count of drive types (<code>drv</code>) within each transmission (<code>trans</code>) category in the <code>mpg</code> dataset</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In Figure 2.10, a stacked bar chart was created using the mpg data set and the <em>trans</em> column as the X axis. Fill was set to <em>drv</em> to create a comparison between the count of the <em>trans</em> columm and how much of each<em>drv</em> there is for each group. Stacked bar graphs allow for the data to be categorised and compared with each other much like a pie chart. By stacking the data, stacked bar graphs can show the total of each category without the worry of collision. Within the position modifier of <em>geom_bar()</em>, we can also set it to “dodge” to create a dodge bar graph. Unlike stacked bar graphs where the bars are stacked on one another, dodge bar graphs place the bars side by side. The benefit of this is that it allows for categories to be compared individually within their groups.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>dodge_example <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> trans, <span class="at">fill =</span> drv)) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>dodge_example</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><em>Figure 2.11: Dodge bar chart showing the count of drive types (<code>drv</code>) for each transmission (<code>trans</code>) category in the <code>mpg</code> dataset</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In Figure 2.11, the same aesthetics were used for the stacked bar graph were used only this time the position modifier was set to “dodge”. This allowed for the positions of the bars to be placed side by side allowing one to easily compare the <em>drv</em> categories within the <em>trans</em> groups. Much like in <em>geom_bar()</em>, the position modifier in <em>geom_point()</em> can be set to jitter to create a jittered scatter plot. Jittering moves the points slightly away from where they would be to allow for overlapping points to be observed.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>jitter_example <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(class, hwy)) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="st">"jitter"</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>jitter_example</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><em>Figure 2.12: Jittered scatter plot showing highway MPG (<code>hwy</code>) across vehicle classes (<code>class</code>) in the <code>mpg</code> dataset</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In Figure 2.12, a jittered scatter plot using the <em>class</em> column and <em>hwy</em> column in the mpg data set was made. In the <em>hwy</em> column, there are many repeated variables. Without a jitter, these points would overlap and thus not be able to be seen. But with the use of jitter, it allows us to see the repeated plot points without removing the original structure of the graphic. In the grammar of graphics, statistical elements are the mathematical calculations done to data before it is transformed. The data would be summarised before any geometries are created. In ggplot, statistical elements are calculated automatically before any geometries are created. For example, in <em>geom_bar()</em>, <em>stat_count()</em> is used to calculate the number of positions of each x positions. The advantage of this is that ggplot would do any complex calculations and visualise the data correctly.</p>
+</section>
+<section id="coordinates-1" class="level2">
+<h2 class="anchored" data-anchor-id="coordinates-1">Coordinates</h2>
+<p>If geometries are the shapes that data takes when visualised, coordinates would be where those shapes are placed. (Wilkinson, 2005, p.&nbsp;179) In the grammar of graphics, the most common coordinate systems are Cartesian and polar. Cartesian coordinates systems can be defined by their use of XYZ axis. Their use of these axis allow for trends to be easily recognised. In ggplot, Cartesian coordinates systems are the default. <em>coord_cartesian()</em> can be used to set limits on the X and Y axis using the <em>xlim</em> and <em>ylim</em> modifiers (Wickham et al., 2024)</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>cartesian_example <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, unemploy)) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">5000</span>, <span class="dv">15000</span>))</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>cartesian_example</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><em>Figure 2.13: Line plot of unemployment over time using Cartesian coordinates, limited to the range 5,000–15,000</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Much like the <em>limits</em> modifier in <em>scale_y_continuous()</em>, we can use <em>ylim</em> to limit the axes. One benefit of using <em>ylim</em> in <em>coord_cartesian()</em> as opposed to <em>limits</em> in <em>scale_y_continuous()</em> is that <em>ylim</em> doesn’t remove any of the data below 5000 but instead zooms in on that range. On the other hand, polar coordinates are defined by not having a typical XYZ axis but by how far they are from the central point. The most common use of polar coordinates are pie charts. In ggplot, to create a pie chart, you would first have to create a bar chart using <em>geom_bar()</em> then using <em>coord_polar()</em> to transform it into a polar coordinate graphic.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>polar_example <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">fill =</span> class)) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>polar_example</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><em>Figure 2.14: Pie chart showing the distribution of vehicle classes in the <code>mpg</code> dataset using polar coordinates</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><em>coord_polar()</em> has many modifiers to suit the graphic you wish to create. You can use the <em>theta</em> variable to choose between mapping the X or Y axis. You could also use the <em>direction</em> modifier to set it clockwise or anti clockwise. The benefit of polar coordinates as opposed to Cartesian is that polar coordinates make efficient use of space for comparing part-to-whole relationships or highlighting symmetry. Much like <em>coord_cartesian</em>, <em>coord_polar</em> does not remove or edit any of the data.</p>
+</section>
+<section id="guides-and-facets" class="level2">
+<h2 class="anchored" data-anchor-id="guides-and-facets">Guides and facets</h2>
+<p>To put this all together, guides are used to help the viewer decode and understand the graphic. In the grammar of graphics, guides are labeling, legends and axes. (Wilkinson, 2005, p.&nbsp;346) In ggplot, if labels are not specified it will default to using the mappings within the <em>aes()</em> function. Renaming titles, axes and legends can be done through the use of <em>labs()</em> function (Wickham et al., 2024). This takes the X axis, Y axis, title and subtitle as arguments. Modifying the legend from can be done through the use of the <em>theme()</em> function. Within this function many changes can be made such as the size or positioning of the legend. You may want to do this so that the legend is clear and doesn’t conflict with the graphic.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>guides_example <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(hwy, manufacturer, <span class="at">fill =</span> class)) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"cm"</span>)) <span class="sc">+</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Highway MPG by Manufacturer"</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Highway MPG"</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Manufacturer"</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>guides_example</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><em>Figure 2.15: Box plot of highway MPG (<code>hwy</code>) by manufacturer, with customized legend size and axis labels</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In Figure 2.15, the X axis and Y axis were given appropriate and more intuitive labels. Through the use of <em>theme()</em> and its modifier <em>legend.key.size</em>, the legends size was set to 1cm. This make the legend larger and ensures it doesn’t conflict with the graphic. In the grammar of graphics, facets split your data into separate panels while keeping shared axes. (Wilkinson, 2005, p.&nbsp;319) This allows for comparisons to be made more clearer. Facets are best used when comparisons between distributions or subgroups are important to the graphic. In terms of ggplot, <em>facet_wrap()</em> can be used to create a graphic with multiple panels.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>facets_example <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(hwy, manufacturer, <span class="at">fill =</span> class)) <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(<span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"cm"</span>)) <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Highway MPG by Manufacturer"</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">x =</span> <span class="st">"Highway MPG"</span>,</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> <span class="st">"Manufacturer"</span>) <span class="sc">+</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="fu">facet_wrap</span>(<span class="sc">~</span>drv)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>facets_example</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><em>Figure 2.16: Faceted box plot of highway MPG (<code>hwy</code>) by manufacturer, split by drive type (<code>drv</code>), with customized legend size and axis labels</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In Figure 2.16, <em>facet_wrap()</em> was used to create multiple panels of the “Highway MPG by Manufacturer” graphic using the <em>drv</em> column in the <em>mpg</em> data set as the groups the data was facetted into. This allows for easy comparisons between the drive of the vehicles, their manufacturers and highway mpg. <em>facet_wrap()</em> also allows for the different panels to share the same panels (Wickham et al., 2024)</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>In conclusion, the key to making a well produced graphic is using geometries and coordinates to shape and place the data to make a compelling graphic. Declaring aesthetics to define the data as well as using guides to help the user navigate and decode the graphic. Scales can be used to further enhance specific elements of a graphic such as the X or Y axis or the colour. Facets can be used to highlight key groups and create clear comparisons. All this together allows for a compelling and well produced graphic to be made.</p>
+</section>
+</section>
+<section id="a-complex-graphic-in-practice" class="level1">
+<h1>A Complex Graphic in Practice</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>mpg_cartesian <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(manufacturer, <span class="at">fill =</span> class)) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"stack"</span>) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Dark2"</span>) <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>year) <span class="sc">+</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Manufacturer"</span>,</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Count"</span>, </span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Count of Class by Manufacturer separated by Year"</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>mpg_cartesian</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><em>Figure 3.1: Stacked bar chart showing the count of vehicle classes by manufacturer, flipped for readability and faceted by year, using the Dark2 color palette</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>mpg_polar <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">fill =</span> class)) <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Dark2"</span>) <span class="sc">+</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>) <span class="sc">+</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>year) <span class="sc">+</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Proportion of Classes separated by Year"</span>) <span class="sc">+</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>mpg_polar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption><em>Figure 3,2: Faceted pie chart showing the proportion of vehicle classes, separated by year, using the Dark2 color palette</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="principles-used-in-cartesian-graphic" class="level2">
+<h2 class="anchored" data-anchor-id="principles-used-in-cartesian-graphic">Principles used in Cartesian Graphic</h2>
+<p>In the Cartesian example above, the mpg data set was used to create a stacked bar chart showing the count of the class of cars by manufacturer and separated by year. <em>manufacturer</em> was used to create the X axis. Because <em>geom_bar()</em> was used, the Y axis automatically defaults to <em>count</em>. The fill colour was set to <em>class</em> allowing the bars to be distinguished by class. For the geometries of this graphic, <em>geom_bar()</em> was used to create a stacked bar chart. Setting the position modifier to <em>stack</em> allows for <em>geom_bar()</em> to become a stacked bar chart. In terms of ggplot, <em>geom_bar()</em> uses <em>stat_count</em> by default for statistical transformations which allows for strong categorical comparisons as it counts each individual case in each group and creates bars proportional to that count. For the scales, <em>scale_fill_brewer</em> was used to change the colour palette to <em>Dark2</em> which was used by <em>fill</em> to allow for the differences between the classes to be visually distinct. <em>coord_flip()</em> was used to flip the graphic to allow for the X and Y axis without transforming the data to allow for the categories to be easily distinguishable. <em>coord_flip()</em> also gives the labels on the X axis space which stops any overlapping and allows for improved readability. The use of faceting by <em>year</em> here allows for the graphic to tell a compelling story through time by separating the data into 2 panels. How it is used here is to show how the vehicle classes change over time. The use of <em>labs()</em> in this example allows for the X axis, Y axis and Titles be labelled. GGPlot already does this but using the <em>labs()</em> function allows for the labels to be more intuitive. In this case, the X and Y axis did not need modifying as they were already concise. The graphic did need a title so that a user may understand what the graphic represents.</p>
+</section>
+<section id="principles-used-in-polar-graphic" class="level2">
+<h2 class="anchored" data-anchor-id="principles-used-in-polar-graphic">Principles used in Polar Graphic</h2>
+<p>Much of the principles used in the Cartesian graphic apply to the polar graphic. The same data set was used and fill was set to <em>class</em>. The X axis was set to <em>““</em> which tells ggplot to stack all the variables into one bar so that it can later create a pie chart. Much like the Cartesian graphic, <em>fill</em> was set to <em>class</em>. For the geometrical transformations, <em>geom_bar()</em> was used without any modifiers. This is because <em>coord_polar()</em> with the <em>theta</em> modifier set to <em>y</em> was used. <em>coord_polar()</em> is used to transform a Cartesian coordinates system into a polar system by mapping data around a central point. The <em>theta</em> modifier simply asks for which axis will be mapped which in this case is the Y axis. The facets and scales of the polar graphic did not need to be different than the Cartesian example as it still conveys the same visually compelling trends. <em>theme_void()</em> was used to create a completely empty theme.It gets rid of any unnecessary details left by default such as the unlabeled X and Y axis and background. Because the main focus of this graphic is the proportions of the pie chart, the axis and background are not needed as they distract the user from the graphic.</p>
+</section>
+<section id="how-perception-differs-by-encoding" class="level2">
+<h2 class="anchored" data-anchor-id="how-perception-differs-by-encoding">How Perception Differs by Encoding</h2>
+<p>Visual perception differs considerably between Cartesian and polar graphics. Cartesian graphics like stacked bar charts make use of X and Y axis to encode data using position and length. As opposed to polar graphics such as pie charts, stacked bar charts allow for values to be compared. In the Cartesian example above, the length and positioning of the bars make it so that the viewer can compare the vehicle class counts across the manufacturers and between years. In contrast, pie charts compare data through the use of angles and area. Pie charts show comparisons through part to whole relationships. The disadvantage of this is that it doesn’t allow for specific values to be compared. In the polar example above, the user can tell that SUVs are the main cars being manufactured as it is the largest portion of the graphic. Faceting can further affect perception when it comes to graphics. Faceting by year allows for the comparisons to be made without over plotting. In the pie chart above, we can see that in 1999 SUVs made up the majority of car classes but in 2008 they are not only still majority class but have increased since 1999. The downside to faceting is that absolute totals are hard to compare as the data is split into different panels. Overall, faceting allows for clear comparisons to be made while reducing over plotting. By changing geometries, coordinates and facets, the graphics can convey different interpretations of the data. It is important to use the right elements of the grammar of graphics for effective data visualisation.</p>
+</section>
+</section>
+<section id="animate-with-gganimate" class="level1">
+<h1>Animate with gganimate</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>economics_anim <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, unemploy)) <span class="sc">+</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>() <span class="sc">+</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Unemployment vs Population"</span>,</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Date"</span>,</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of unemployed"</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> economics_anim <span class="sc">+</span> <span class="fu">transition_reveal</span>(date)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>anim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_files/figure-html/unnamed-chunk-21-1.gif" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 4: Animated line plot showing unemployment over time, revealing trends in the number of unemployed</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In this animation, it shows the number of unemployed as time goes on. It shows a major spike in unemployment during the 2008 financial crisis. Animation is a key factor for data visualisation as it allows for trajectories to be observed through motion. It also allows for complex patterns and shifts to be observed that may be difficult to see in static graphics. One downside to animation is that it makes precise comparisons difficult to make as it focuses on motion.</p>
+</section>
+<section id="reference-list" class="level1">
+<h1>Reference List</h1>
+<p>Wilkinson, L. (2005) <em>The Grammar of Graphics.</em> 2nd edn. New York: Springer.</p>
+<p>Wickham, H. et. al.&nbsp;(2024) ggplot2: <em>Create Elegant Data Visualisations Using the Grammar of Graphics.</em> Available at: https://ggplot2.tidyverse.org (Accessed: 8 January 2026).</p>
+<p>ChatGPT GPT4.5 was used to help with structure of this assignment, captions for the figures and code correction</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
